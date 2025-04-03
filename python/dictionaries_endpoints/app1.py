@@ -1,10 +1,11 @@
-from app1_response import response
-import pandas as pd
-import boto3
-import awswrangler as wr
 import os
-from dotenv import load_dotenv, dotenv_values
-import secret       
+
+import awswrangler as wr
+import boto3
+import pandas as pd
+from dotenv import load_dotenv
+
+from app1_response import response
 
 jobs = response["jobs"]
 
@@ -23,7 +24,7 @@ position = []
 
 for i in titles:
     if "Senior" in i:
-       position.append("Senior")
+        position.append("Senior")
     else:
         position.append("Manager")
 
@@ -38,10 +39,10 @@ session = boto3.Session(
 
 my_path = "s3://taofeecoh-bucket"
 wr.s3.to_parquet(
-    df= df,
-    path= f"{my_path}/app1",
+    df=df,
+    path=f"{my_path}/app1",
     boto3_session=session,
-    mode= "append",
-    dataset= True,
+    mode="append",
+    dataset=True,
     index=False
     )

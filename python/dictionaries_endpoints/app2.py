@@ -1,17 +1,18 @@
-import requests
-import pandas as pd
-import boto3
-import awswrangler as wr
 import os
-from dotenv import load_dotenv, dotenv_values
 
+import awswrangler as wr
+import boto3
+import pandas as pd
+import requests
+from dotenv import load_dotenv
 
 url = "http://api.football-data.org/v4/competitions/"
 
 response = requests.get(url)
 if response.status_code == 200:
     competition_data = response.json()
-    competition_names = [comp["name"] for comp in competition_data["competitions"]]
+    competition_names = [comp["name"]
+                         for comp in competition_data["competitions"]]
     df = pd.DataFrame({"Competition_names": competition_names})
 else:
     print("Invalid status code!")
@@ -25,10 +26,10 @@ session = boto3.Session(
 
 my_path = "s3://taofeecoh-bucket"
 wr.s3.to_parquet(
-    df= df,
-    path= f"{my_path}/app2/competition-names",
+    df=df,
+    path=f"{my_path}/app2/competition-names",
     boto3_session=session,
-    mode= "append",
-    dataset= True,
+    mode="append",
+    dataset=True,
     index=False
     )

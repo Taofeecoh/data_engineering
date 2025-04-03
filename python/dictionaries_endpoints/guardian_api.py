@@ -1,9 +1,11 @@
-import requests
-import pandas as pd
-import boto3
-import awswrangler as wr
 import os
-from dotenv import load_dotenv, dotenv_values
+
+import awswrangler as wr
+import boto3
+import pandas as pd
+import requests
+from dotenv import load_dotenv
+
 import secret
 
 url = "https://content.guardianapis.com/search?q=%22Nigeria%22&api-key=test"
@@ -13,11 +15,12 @@ if r.status_code == 200:
     response = r.json()
     data = response["response"]
     data = data["results"]
-    df = pd.DataFrame(data = data)
-    #df.to_csv('guardian_Nigeria.csv', encoding='utf-8', index=False, header=True)
+    df = pd.DataFrame(data=data)
+    # df.to_csv('guardian_Nigeria.csv',
+    # encoding='utf-8', index=False, header=True)
 else:
     print("Invalid status code!")
-    
+
 # Write to s3 bucket
 load_dotenv()
 session = boto3.Session(
@@ -27,11 +30,11 @@ session = boto3.Session(
 
 my_path = "s3://taofeecoh-bucket"
 wr.s3.to_parquet(
-    df= df,
-    path= f"{my_path}/app4/nigerian-guardian",
-    boto3_session= secret.session,
-    mode= "append",
-    dataset= True,
+    df=df,
+    path=f"{my_path}/app4/nigerian-guardian",
+    boto3_session=secret.session,
+    mode="append",
+    dataset=True,
     index=False
     )
 
@@ -42,12 +45,11 @@ def guardian_api(link):
     if r.status_code == 200:
         response = r.json()
         data = response["response"]
-        #print(data.keys())
+        # print(data.keys())
         data = data["results"]
-        df = pd.DataFrame(data = data)
-        df.to_csv('guardianNigeria.csv', encoding='utf-8', index=False, header=True) #if saving on local machine
-        #return(df) # if writing to a cloud storage
+        df = pd.DataFrame(data=data)
+        df.to_csv('guardianNigeria.csv', encoding='utf-8',
+                  index=False, header=True)   # if saving on local machine
+        # return(df) if writing to a cloud storage
     else:
-        return f"Invalid status code"
-    
-    
+        print("Invalid status code")

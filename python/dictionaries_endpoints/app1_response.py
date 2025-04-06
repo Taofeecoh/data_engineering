@@ -1,4 +1,4 @@
-response = {'apiVersion': '2.0',
+{'apiVersion': '2.0',
  'documentationUrl': 'https://jobi.cy/apidocs',
  'friendlyNotice': "We appreciate your use of Jobicy API in your projects! Please note that our API access is designed primarily to facilitate broader distribution of our content. We kindly request that you refrain from distributing Jobicy's job listings to any external job platforms, such as Jooble, Google Jobs, and LinkedIn, among others. To ensure that Jobicy is credited as the original source across various platforms, content in the feeds is published with a slight delay. As our data doesn't change frequently, accessing the Feed a few times daily is sufficient and recommended. Be advised that excessive querying may lead to restricted access. Thank you for understanding and cooperating!",
  'jobCount': 6,

@@ -1,3 +1,4 @@
+import json
 import os
 
 import awswrangler as wr
@@ -5,7 +6,8 @@ import boto3
 import pandas as pd
 from dotenv import load_dotenv
 
-from app1_response import response
+with open("app_response1.py", 'r') as file:
+    response = json.load(file)
 
 jobs = response["jobs"]
 

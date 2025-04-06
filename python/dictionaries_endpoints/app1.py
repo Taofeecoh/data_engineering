@@ -46,3 +46,5 @@ wr.s3.to_parquet(
     dataset=True,
     index=False
     )
+
+print("done!")

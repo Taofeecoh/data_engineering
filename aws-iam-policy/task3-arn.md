@@ -3,10 +3,13 @@ url: https://docs.aws.amazon.com/service-authorization/latest/reference/list_ama
 
 - S3 accesspoint
  *arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}*
+
 - S3 bucket
  *arn:${Partition}:s3:::${BucketName}*
+
 - S3 storagelensgroup
  *arn:${Partition}:s3:${Region}:${Account}:storage-lens-group/${Name}*
+ 
 - S3 object
  *arn:${Partition}:s3:::${BucketName}/${ObjectName}*
 
@@ -16,8 +19,10 @@ url: https://docs.aws.amazon.com/service-authorization/latest/reference/list_aws
 
 - IAM mfa
  *arn:${Partition}:iam::${Account}:mfa/${MfaTokenIdWithPath}*
+
 - IAM role
  *arn:${Partition}:iam::${Account}:role/${RoleNameWithPath}*
+
 - IAM user
  *arn:${Partition}:iam::${Account}:user/${UserNameWithPath}*
 
@@ -26,9 +31,12 @@ url: https://docs.aws.amazon.com/service-authorization/latest/reference/list_ama
 
 - EC2 elastic-ip
  *arn:${Partition}:ec2:${Region}:${Account}:elastic-ip/${AllocationId}*
+
 - EC2 fleet
  *arn:${Partition}:ec2:${Region}:${Account}:fleet/${FleetId}*
+
 - EC2 instance
  *arn:${Partition}:ec2:${Region}:${Account}:instance/${InstanceId}*
+
 - EC2 image
  *arn:${Partition}:ec2:${Region}::image/${ImageId}*

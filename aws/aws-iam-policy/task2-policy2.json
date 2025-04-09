@@ -5,7 +5,7 @@
             "Sid": "Statement1",
             "Effect": "Allow",
             "Action": [
-                "iam:List*",
+                "iam:ListUsers",
                 "iam:CreateUser"
             ],
             "Resource": [

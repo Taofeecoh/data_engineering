@@ -28,8 +28,18 @@
             "Action": [
                 "s3:delete*"
             ],
-            "NotResource": [
-                "arn:aws:s3:::*spark-job*/dumps/*csv"
+            "Resource": [
+                "arn:aws:s3:::spark-job-data-input/dumps/*"
+            ]
+        },
+        {
+            "Sid": "Statement4",
+            "Effect": "Deny",
+            "Action": [
+                "s3:delete*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::spark-job-data-input/dumps/*csv"
             ]
         }
     ]

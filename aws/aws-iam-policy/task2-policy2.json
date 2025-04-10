@@ -5,6 +5,16 @@
             "Sid": "Statement1",
             "Effect": "Allow",
             "Action": [
+                "iam:ListUsers"
+            ],
+            "Resource": [
+                "arn:aws:iam::340752803932:user/*"
+            ]
+        },
+        {
+            "Sid": "Statement2",
+            "Effect": "Allow",
+            "Action": [
                 "iam:ListUsers",
                 "iam:CreateUser"
             ],

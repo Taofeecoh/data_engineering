@@ -15,7 +15,6 @@
             "Sid": "Statement2",
             "Effect": "Allow",
             "Action": [
-                "iam:ListUsers",
                 "iam:CreateUser"
             ],
             "Resource": [

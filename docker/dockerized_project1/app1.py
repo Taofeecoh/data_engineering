@@ -1,10 +1,14 @@
 import json
 import os
+import time
 
 import awswrangler as wr
 import boto3
 import pandas as pd
 from dotenv import load_dotenv
+
+
+# time.sleep(180)
 
 with open("app_response1.json", 'r') as file:
     response = json.load(file)
@@ -42,7 +46,7 @@ session = boto3.Session(
 my_path = "s3://taofeecoh-bucket"
 wr.s3.to_parquet(
     df=df,
-    path=f"{my_path}/app1",
+    path=f"{my_path}/app1-v1",
     boto3_session=session,
     mode="append",
     dataset=True,

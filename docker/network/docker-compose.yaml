@@ -1,0 +1,26 @@
+
+---
+services:
+  myapp:
+    build: .
+    ports:
+      - 8081:8080
+    networks:
+      - my-bridge-net
+
+  myapp-v2:
+    build: .
+    ports:
+      - 8082:8080
+    networks:
+      - my-bridge-net
+
+networks:
+  my-bridge-net:
+    driver: bridge
+    # Optionally, match the previous example
+    ipam:
+      config:
+        - subnet: "16.0.0.0/17"
+          gateway: "16.0.0.1"
+

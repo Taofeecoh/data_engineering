@@ -3,11 +3,12 @@ __pycache__
 udemy_*
 *ipynb
 *res*.py
-sec*
+secret*
 *Keys*
 pam*
 practice
 generic.py
 *osh*
 *pem
-
+*.tfstate*
+.terra*

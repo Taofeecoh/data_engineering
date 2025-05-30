@@ -1,5 +1,6 @@
 resource "aws_vpc" "o_and_t" {
   cidr_block = "10.20.0.0/16"
+  enable_dns_hostnames = true
 
   tags = {
     Name        = "o_and_t"
